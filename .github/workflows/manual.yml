@@ -1,0 +1,22 @@
+name: Manual Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      greeting:
+        type: string
+        description: "Greeting message"
+        default: "Hello, world!"
+        required: true
+      log-level:
+        type: choice
+        description: "Log level"
+        default: "debug"
+        options:
+          - info
+          - debug
+          - error
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ inputs.greeting }}"
