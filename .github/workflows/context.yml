@@ -1,0 +1,11 @@
+name: Variable Context Example
+on: [push]
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_ACTOR: ${{ github.actor }}
+      USERNAME: ${{vars.USERNAME}}
+    steps:
+      - run: echo "${{env.GITHUB_ACTOR}}"
+      - run: echo "${{env.USERNAME}}"
